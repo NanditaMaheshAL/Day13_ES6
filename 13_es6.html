@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6+ Features</title>
+</head>
+<body>
+    <script>
+        console.log("Arrow functions:")
+        /* Steps - 
+        1. function return value stored in a variable is initialised first
+        2. = 
+        3. () contains function parameters
+        4. =>
+        5. {} conditions/calculations to find the return value
+        6. if conditions - eg. x > y ? true : false - if x > y, return true, else return false
+        Note - uses this. for variables within the function scope, not applicable to class variables defined
+        */
+        let sum = (a,b) => a+b //after arrow is returned
+        let isPositive = n => n>=0 
+        let largerNum = (x,y) => x>y?x:y
+        console.log(sum(2,3), isPositive(-2),largerNum(5,9))
+
+        console.log("Deconstruction:")
+        // useful for when only particular information is needed.
+        const details = ['nandita',22,"employee"]
+        const [name,age,] = details
+        console.log("Details: ",[name,age,])
+
+        function calculate(a,b){
+            const add = a+b
+            const sub = a-b
+            const mul = a*b
+            const div = a/b
+            return [add,sub,mul,div]
+        }
+        const [add,sub,mul,div] = calculate(10,20)
+        console.log("Calculate Result: ",[add,sub,mul,div])
+
+        console.log("... Spread Operator:")
+        //quickly copies all or part of an existing array or object into another array or object
+        const arr = [1,2,3,4,5,6,7,8,9,123,13434,123]
+        const copy = [...arr]
+        console.log("Copied Array: ",copy)
+
+        console.log("... Rest parameter for undefined number or function parameters:")
+        function addNums(...nums){
+            let sum = 0
+            for(num of nums){
+                sum += num
+            }
+            return sum
+        }
+        console.log("Sum: ",addNums(1,2,3,4,5,6))
+    </script>
+</body>
+</html>
